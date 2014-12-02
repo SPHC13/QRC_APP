@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
 
+  get 'users/new'
+
+  resources :locations
+
+  resources :events
+
   resources :qr_codes, only: [:new, :create]
-  root to: "qr_codes#new"  
-  #get 'qr_codes/new'
+  #root to: "qr_codes#new"
+  root 'events#index'
+ 
+ #get 'qr_codes/new'
   
   # get 'qr_codes/create'
 

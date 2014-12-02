@@ -1,13 +1,10 @@
+require 'rqrcode'
 class QrCodesController < ApplicationController
-  def new
-  end
-  
   def create
-    @qr = RQRCode::QRCode.new( qr_code_params[:text], size: 4)
-  end
+  end  
 
-  private
-  def qr_code_params
-     params.require(:qr_code).permit(:text)
+  def new
+    @qr = RQRCode::QRCode.new( 'HelloWorld', :size => 4, :level => :h )   
+   # @qr = RQRCode::QRCode.new( qr_code_params[:text], size: 4)
   end
 end
