@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 2.times do |i|
-  Event.create(name: "Event #{i + 1}"
+  Event.create(name: "Event #{i + 1}")
   3.times do |j|
     if Location.any?
       id = Location.last.id
