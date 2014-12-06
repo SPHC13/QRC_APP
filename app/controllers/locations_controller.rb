@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+#@qr = RQRCode::QRCode.new( 'location id' , :size => 8, :level => :h )
   before_action :set_location, only: [:show, :edit, :update, :destroy]
 
   # GET /locations
@@ -10,6 +11,7 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
+	@qr = RQRCode::QRCode.new( "#{@location.tag}", :size => 8, :level => :h )
   end
 
   # GET /locations/new
@@ -72,3 +74,4 @@ class LocationsController < ApplicationController
       params.require(:location).permit(:name, :tag, :event_id) 
     end
 end
+
